@@ -10,10 +10,33 @@ const User = db.define('user', {
   username: {
     type: Sequelize.STRING,
     unique: true,
-    allowNull: false
+    allowNull: false,
+    validate: {
+      notEmpty: true
+    }
   },
   password: {
     type: Sequelize.STRING,
+    allowNul: false,
+    validate: {
+      notEmpty: true
+    }
+  },
+  email: {
+    type: Sequelize.STRING,
+    unique: true,
+    allowNull: false,
+    validate: {
+      isEmail :true
+    }
+  },
+  rank: {
+    type: Sequelize.STRING,
+    defaultValue: "Beginner"
+  },
+  isAdmin: {
+    type: Sequelize.BOOLEAN,
+    default: false
   }
 })
 
