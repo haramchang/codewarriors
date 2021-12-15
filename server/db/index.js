@@ -6,6 +6,11 @@ const Room = require("./models/Room")
 const Algo = require("./models/Algo")
 
 //associations could go here!
+User.hasOne(Stats)
+Stats.belongsTo(User)
+
+User.belongsToMany(Room, { through: "User-Rooms" })
+Room.belongsToMany(User, { through: "User-Rooms" })
 
 module.exports = {
   db,

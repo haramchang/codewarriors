@@ -12,6 +12,10 @@ const Algo = db.define("algo", {
   userInput: {
     type: Sequelize.STRING
   },
+  testCases: {
+    type: Sequelize.STRING,
+    allowNull: false
+  },
   difficulty: {
     type: Sequelize.ENUM("easy", "medium", "hard")
   }
