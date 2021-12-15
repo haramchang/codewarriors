@@ -1,15 +1,14 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import { Game } from "./Game"
 
-/**
- * COMPONENT
- */
 export const Home = props => {
-  const {username} = props
+  const { username } = props
 
   return (
-    <div>
+    <div id="home-container">
       <h3>Welcome, {username}</h3>
+      <Game />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 const Sequelize = require("sequelize")
 const db = require("../db")
 
-const Room = db.define("room", {
+const Game = db.define("game", {
   active: {
     type: Sequelize.BOOLEAN,
     defaultValue: true
@@ -14,4 +14,4 @@ const Room = db.define("room", {
   }
 })
 
-module.exports = Room
+module.exports = Game

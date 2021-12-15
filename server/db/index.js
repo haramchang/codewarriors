@@ -2,22 +2,22 @@
 const db = require('./db')
 const User = require('./models/User')
 const Stats = require("./models/Stats")
-const Room = require("./models/Room")
+const Game = require("./models/Game")
 const Algo = require("./models/Algo")
 
 //associations could go here!
 User.hasOne(Stats)
 Stats.belongsTo(User)
 
-User.belongsToMany(Room, { through: "User-Rooms" })
-Room.belongsToMany(User, { through: "User-Rooms" })
+User.belongsToMany(Game, { through: "User-Games" })
+Game.belongsToMany(User, { through: "User-Games" })
 
 module.exports = {
   db,
   models: {
     User,
     Stats,
-    Room,
+    Game,
     Algo
   },
 }
