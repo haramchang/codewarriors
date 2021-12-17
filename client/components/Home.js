@@ -4,12 +4,17 @@ import { useHistory } from "react-router-dom"
 
 export const Home = props => {
   const { username } = props
+  const history = useHistory()
+
+  function handleCreate() {
+    history.push("game")
+  }
 
   return (
     <div id="home-container">
       <h3>Welcome, {username}</h3>
 
-      <button>Create Game</button>
+      <button onClick={handleCreate}>Create Game</button>
       <div id="open-games">
         Where the open games will go.
       </div>
