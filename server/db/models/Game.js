@@ -11,6 +11,18 @@ const Game = db.define("game", {
   },
   lengthInSeconds: {
     type: Sequelize.INTEGER
+  },
+  winner: {
+    type: Sequelize.INTEGER,
+    defaultValue: null
+  },
+  loser: {
+    type: Sequelize.INTEGER,
+    defaultValue: null
+  },
+  draw: {
+    type: Sequelize.BOOLEAN,
+    defaultValue: false
   }
 })
 
