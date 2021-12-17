@@ -12,6 +12,9 @@ Stats.belongsTo(User)
 User.belongsToMany(Game, { through: "User-Games" })
 Game.belongsToMany(User, { through: "User-Games" })
 
+Algo.hasMany(Game)
+Game.belongsTo(Algo)
+
 module.exports = {
   db,
   models: {

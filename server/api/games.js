@@ -17,3 +17,13 @@ router.get("/", async (req, res, next) => {
     next(err)
   }
 })
+
+// POST /api/users
+router.post("/", async (req, res, next) => {
+  try {
+    const game = await Game.create(req.body)
+    res.send(game)
+  } catch (err) {
+    next(err)
+  }
+})
