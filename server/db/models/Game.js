@@ -6,8 +6,8 @@ const Game = db.define("game", {
     type: Sequelize.BOOLEAN,
     defaultValue: true
   },
-  difficultyLevel: {
-    type: Sequelize.STRING
+  difficulty: {
+    type: Sequelize.ENUM("easy", "medium", "hard")
   },
   lengthInSeconds: {
     type: Sequelize.INTEGER
