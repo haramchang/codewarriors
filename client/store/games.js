@@ -37,6 +37,7 @@ export const addGame = (info) => async dispatch => {
   try {
     const {data: game} = await axios.post("/api/games", info)
     dispatch(_addGame(game))
+    history.push("/game")
   } catch (error) {
     console.log("error from adding game", error)
   }

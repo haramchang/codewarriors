@@ -1,20 +1,17 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
-import { useHistory } from "react-router-dom"
 import { addGame, fetchGames } from "../store/games"
 
 export const Home = props => {
-  const { username, id} = props
-  const history = useHistory()
+  const { username, id, setGames, addGame, games } = props
 
   useEffect(() => {
     // componentDidMount - show all active games
-    props.setGames()
+    setGames()
   }, [])
 
   function handleCreate() {
-    props.addGame({ difficultyLevel: "easy", algoId: 1, userId: id })
-    history.push("game")
+    addGame({ difficulty: "easy", algoId: 1, userId: id })
   }
 
   return (
@@ -23,7 +20,10 @@ export const Home = props => {
 
       <button onClick={handleCreate}>Create Game</button>
       <div id="open-games">
-        Where the open games will go.
+        <h1>All Open Games</h1>
+          {games.map(game => (
+            <button key={game.id}>Join Room</button>
+          ))}
       </div>
     </div>
   )
@@ -36,6 +36,7 @@ const mapState = state => {
   return {
     username: state.auth.username,
     id: state.auth.id,
+    games: state.games
   }
 }
 
