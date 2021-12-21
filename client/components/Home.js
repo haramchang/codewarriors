@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from "react-router-dom"
 import { addGame, fetchGames } from "../store/games"
@@ -7,9 +7,10 @@ export const Home = props => {
   const { username, id} = props
   const history = useHistory()
 
-  // set all active games in store
-  // this component will re-render as long as games in mapstate gets updated
-  props.setGames()
+  useEffect(() => {
+    // show all active games
+    props.setGames()
+  }, [])
 
   function handleCreate() {
     addGame({ difficultyLevel: "easy", algoId: 1, userId: id })
@@ -34,7 +35,7 @@ export const Home = props => {
 const mapState = state => {
   return {
     username: state.auth.username,
-    id: state.auth.id
+    id: state.auth.id,
   }
 }
 
