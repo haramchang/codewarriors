@@ -18,10 +18,16 @@ router.get("/", async (req, res, next) => {
   }
 })
 
-// POST /api/users
+// when someone creates a new game
+// POST /api/games
 router.post("/", async (req, res, next) => {
   try {
-    const game = await Game.create(req.body)
+    const { difficultyLevel, algoId, userId } = req.body
+    // when creating a new game, all you pass in is the difficulty level and the algo id
+    const game = await Game.create({difficultyLevel, algoId})
+
+    // do i use magic methods to set the user to this game? I need to get the userId then
+    game.addUser(userId)
     res.send(game)
   } catch (err) {
     next(err)

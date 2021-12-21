@@ -17,6 +17,7 @@ router.get('/', async (req, res, next) => {
   }
 })
 
+// when someone signs up
 // POST /api/users
 router.post("/", async (req, res, next) => {
   try {
@@ -27,6 +28,7 @@ router.post("/", async (req, res, next) => {
   }
 })
 
+// get 1 user's info
 // GET /api/users/:id
 router.get("/:id", async (req, res, next) => {
   try {
@@ -42,6 +44,7 @@ router.get("/:id", async (req, res, next) => {
   }
 })
 
+// change user's info such as their rank
 // PUT /api/users/:id
 router.put("/:id", async (req, res, next) => {
   try {
