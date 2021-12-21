@@ -48,7 +48,7 @@ export default function (state = [], action) {
     case SET_GAMES:
       return action.games
     case ADD_GAME:
-      return [...state, ...action.game]
+      return [...state, action.game]
     default:
       return state
   }
