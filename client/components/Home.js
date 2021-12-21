@@ -8,12 +8,12 @@ export const Home = props => {
   const history = useHistory()
 
   useEffect(() => {
-    // show all active games
+    // componentDidMount - show all active games
     props.setGames()
   }, [])
 
   function handleCreate() {
-    addGame({ difficultyLevel: "easy", algoId: 1, userId: id })
+    props.addGame({ difficultyLevel: "easy", algoId: 1, userId: id })
     history.push("game")
   }
 
